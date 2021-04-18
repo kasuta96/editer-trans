@@ -8,7 +8,7 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            query: {
+            options: {
               presets: [ '@babel/preset-env' ],
             },
           },
@@ -26,8 +26,8 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js',
-    library: 'Quote',
+    filename: 'trans.js',
+    library: 'Trans',
     libraryTarget: 'umd'
   }
 };
