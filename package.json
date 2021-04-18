@@ -1,32 +1,30 @@
 {
-  "name": "@editorjs/quote",
-  "version": "2.4.0",
-  "keywords": [
-    "codex editor",
-    "tool",
-    "quote",
-    "editor.js",
-    "editorjs"
-  ],
-  "description": "Quote Tool for Editor.js",
-  "license": "MIT",
-  "repository": "https://github.com/editor-js/quote",
-  "main": "./dist/bundle.js",
+  "name": "trans",
+  "version": "1.0.0",
+  "description": "![](https://badgen.net/badge/Editor.js/v2.0/blue)",
+  "main": "webpack.config.js",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch"
   },
-  "author": {
-    "name": "CodeX",
-    "email": "team@codex.so"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasuta96/quote.git"
   },
+  "keywords": [],
+  "author": "kasuta96",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasuta96/quote/issues"
+  },
+  "homepage": "https://github.com/kasuta96/quote#readme",
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "babel-loader": "^8.0.5",
-    "css-loader": "^1.0.0",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0"
   }
 }

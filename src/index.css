@@ -1,19 +1,22 @@
-.cdx-quote-icon svg {
+.cdx-trans-icon svg {
   transform: rotate(180deg);
 }
 
-.cdx-quote {
+.cdx-trans {
   margin: 0;
 }
 
-.cdx-quote__text {
-  min-height: 158px;
+.cdx-trans__original {
+  min-height: 100px;
   margin-bottom: 10px;
 }
 
-.cdx-quote__caption {}
+.cdx-trans__translation {
+  min-height: 100px;
+  margin-bottom: 15px;
+}
 
-.cdx-quote [contentEditable=true][data-placeholder]::before{
+.cdx-trans [contentEditable=true][data-placeholder]::before{
   position: absolute;
   content: attr(data-placeholder);
   color: #707684;
@@ -21,19 +24,19 @@
   opacity: 0;
 }
 
-.cdx-quote [contentEditable=true][data-placeholder]:empty::before {
+.cdx-trans [contentEditable=true][data-placeholder]:empty::before {
   opacity: 1;
 }
 
-.cdx-quote [contentEditable=true][data-placeholder]:empty:focus::before {
+.cdx-trans [contentEditable=true][data-placeholder]:empty:focus::before {
   opacity: 0;
 }
 
 
-.cdx-quote-settings {
+.cdx-trans-settings {
   display: flex;
 }
 
-.cdx-quote-settings .cdx-settings-button {
+.cdx-trans-settings .cdx-settings-button {
   width: 50%;
 }
