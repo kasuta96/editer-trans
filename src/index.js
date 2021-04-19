@@ -199,7 +199,7 @@
     */
    render() {
      const container = this._make('blocktrans', [this.CSS.baseClass, this.CSS.wrapper]);
-     const trans = this._make('div', [this.CSS.input, this.CSS.original], {
+     const original = this._make('div', [this.CSS.input, this.CSS.original], {
        contentEditable: !this.readOnly,
        innerHTML: this.data.original,
      });
@@ -211,7 +211,7 @@
      trans.dataset.placeholder = this.originalPlaceholder;
      translation.dataset.placeholder = this.translationPlaceholder;
  
-     container.appendChild(trans);
+     container.appendChild(original);
      container.appendChild(translation);
  
      return container;
@@ -263,7 +263,7 @@
        .map(tune => {
          const el = this._make('div', this.CSS.settingsButton, {
            innerHTML: tune.icon,
-           title: `${capitalize(tune.name)} option`,
+           title: `${capitalize(tune.name)}`,
          });
  
          el.classList.toggle(this.CSS.settingsButtonActive, tune.name === this.data.option);
