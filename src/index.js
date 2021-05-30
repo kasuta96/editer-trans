@@ -208,7 +208,7 @@
        innerHTML: this.data.translation,
      });
  
-     trans.dataset.placeholder = this.originalPlaceholder;
+     original.dataset.placeholder = this.originalPlaceholder;
      translation.dataset.placeholder = this.translationPlaceholder;
  
      container.appendChild(original);
