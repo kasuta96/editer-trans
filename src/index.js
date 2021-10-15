@@ -124,9 +124,7 @@ class Trans {
        * @returns {string}
        */
       export: function (transData) {
-        return transData.translation
-          ? `${transData.original} — ${transData.translation}`
-          : transData.original
+        return transData.translation ? `${transData.original} — ${transData.translation}` : transData.original
       },
     }
   }
@@ -185,18 +183,13 @@ class Trans {
 
     this.container = undefined
 
-    this.originalPlaceholder =
-      config.originalPlaceholder || Trans.DEFAULT_ORIGIN_PLACEHOLDER
-    this.translationPlaceholder =
-      config.translationPlaceholder || Trans.DEFAULT_TRANS_PLACEHOLDER
+    this.originalPlaceholder = config.originalPlaceholder || Trans.DEFAULT_ORIGIN_PLACEHOLDER
+    this.translationPlaceholder = config.translationPlaceholder || Trans.DEFAULT_TRANS_PLACEHOLDER
 
     this.data = {
       original: data.original || "",
       translation: data.translation || "",
-      option:
-        (Object.values(OPTIONS).includes(data.option) && data.option) ||
-        config.defaultOption ||
-        DEFAULT_OPTION,
+      option: (Object.values(OPTIONS).includes(data.option) && data.option) || config.defaultOption || DEFAULT_OPTION,
     }
   }
 
@@ -211,14 +204,10 @@ class Trans {
       contentEditable: !this.readOnly,
       innerHTML: this.data.original,
     })
-    const translation = this._make(
-      "div",
-      [this.CSS.input, this.CSS.translation],
-      {
-        contentEditable: !this.readOnly,
-        innerHTML: this.data.translation,
-      }
-    )
+    const translation = this._make("div", [this.CSS.input, this.CSS.translation], {
+      contentEditable: !this.readOnly,
+      innerHTML: this.data.translation,
+    })
 
     original.dataset.placeholder = this.originalPlaceholder
     translation.dataset.placeholder = this.translationPlaceholder
@@ -280,10 +269,7 @@ class Trans {
           title: `${capitalize(tune.name)}`,
         })
 
-        el.classList.toggle(
-          this.CSS.settingsButtonActive,
-          tune.name === this.data.option
-        )
+        el.classList.toggle(this.CSS.settingsButtonActive, tune.name === this.data.option)
 
         wrapper.appendChild(el)
 
@@ -296,10 +282,7 @@ class Trans {
           elements.forEach((el, i) => {
             const { name } = this.settings[i]
 
-            el.classList.toggle(
-              this.CSS.settingsButtonActive,
-              name === this.data.option
-            )
+            el.classList.toggle(this.CSS.settingsButtonActive, name === this.data.option)
           })
         })
       })
@@ -325,10 +308,7 @@ class Trans {
   _acceptTuneView() {
     // only toggle Header css
     let tune = this.settings[0]
-    this.container.classList.toggle(
-      this.CSS.header,
-      tune.name === this.data.option
-    )
+    this.container.classList.toggle(this.CSS.header, tune.name === this.data.option)
   }
 
   /**
@@ -356,4 +336,4 @@ class Trans {
   }
 }
 
-module.exports = Trans
+export default Trans

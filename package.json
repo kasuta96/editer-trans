@@ -1,5 +1,5 @@
 {
-  "name": "trans",
+  "name": "editorjs-trans",
   "version": "1.0.0",
   "description": "![](https://badgen.net/badge/Editor.js/v2.0/blue)",
   "main": "webpack.config.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kasuta96/quote.git"
+    "url": "git+https://github.com/kasuta96/editorjs-trans.git"
   },
   "keywords": [],
   "author": "kasuta96",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kasuta96/quote/issues"
+    "url": "https://github.com/kasuta96/editorjs-trans/issues"
   },
-  "homepage": "https://github.com/kasuta96/quote#readme",
+  "homepage": "https://github.com/kasuta96/editorjs-trans#readme",
   "devDependencies": {
     "@babel/core": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
