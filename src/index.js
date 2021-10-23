@@ -17,8 +17,6 @@ require("./index.css").toString()
  *
  * @typedef {object} TransConfig
  * @description Trans Tool`s initial configuration
- * @property {string} originalPlaceholder - placeholder to show in trans`s original input
- * @property {string} translationPlaceholder - placeholder to show in trans`s translation input
  * @property {'paragraph'|'header'} defaultOption - option to use as default
  */
 class Trans {
@@ -63,49 +61,6 @@ class Trans {
    */
   static get enableLineBreaks() {
     return true
-  }
-
-  /**
-   * Default placeholder for trans original
-   *
-   * @public
-   * @returns {string}
-   */
-  static get DEFAULT_ORIGIN_PLACEHOLDER() {
-    return "Enter original"
-  }
-
-  /**
-   * Default placeholder for trans translation
-   *
-   * @public
-   * @returns {string}
-   */
-  static get DEFAULT_TRANS_PLACEHOLDER() {
-    return "Enter translation"
-  }
-
-  /**
-   * Allowed trans options
-   *
-   * @public
-   * @returns {{header: string, paragraph: string}}
-   */
-  static get OPTIONS() {
-    return {
-      header: "header",
-      paragraph: "paragraph",
-    }
-  }
-
-  /**
-   * Default trans option
-   *
-   * @public
-   * @returns {string}
-   */
-  static get DEFAULT_OPTION() {
-    return Trans.OPTIONS.paragraph
   }
 
   /**
@@ -175,21 +130,21 @@ class Trans {
    *   api - Editor.js API
    *   readOnly - read-only mode flag
    */
-  constructor({ data, config, api, readOnly }) {
-    const { OPTIONS, DEFAULT_OPTION } = Trans
+  constructor({ data, api, readOnly }) {
+    const OPTIONS = {
+      header: "header",
+      paragraph: "paragraph",
+    }
 
     this.api = api
     this.readOnly = readOnly
 
     this.container = undefined
 
-    this.originalPlaceholder = config.originalPlaceholder || Trans.DEFAULT_ORIGIN_PLACEHOLDER
-    this.translationPlaceholder = config.translationPlaceholder || Trans.DEFAULT_TRANS_PLACEHOLDER
-
     this.data = {
       original: data.original || "",
       translation: data.translation || "",
-      option: (Object.values(OPTIONS).includes(data.option) && data.option) || config.defaultOption || DEFAULT_OPTION,
+      option: (Object.values(OPTIONS).includes(data.option) && data.option) || OPTIONS.paragraph,
     }
   }
 
@@ -209,8 +164,8 @@ class Trans {
       innerHTML: this.data.translation,
     })
 
-    original.dataset.placeholder = this.originalPlaceholder
-    translation.dataset.placeholder = this.translationPlaceholder
+    original.dataset.placeholder = this.api.i18n.t("Enter original")
+    translation.dataset.placeholder = this.api.i18n.t("Enter translation")
 
     this.container.appendChild(original)
     this.container.appendChild(translation)
